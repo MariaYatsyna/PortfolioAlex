@@ -31,52 +31,28 @@ function select(event) {
 }
 seasons.addEventListener('click', select)
 
-// let form = document.forms[0]
-
-// let nameInput = form.elements.email
-
-// let telInput = form.elements.tel
-
-// let messageInput = form.elements.message
-
-
-
-// let getSelect = document.querySelector("#select")
-// // getSelect.selectedIndex = 2;
-// // getSelect.options[2].selected = true;
-// // getSelect.value = "pear";
-// console.log(getSelect.options);
-
-// let selectMusic = document.querySelector("#selectMusic")
-// let chosenMusic = Array.from(selectMusic.options)
-//     .filter(options => options.selected)
-//     .map(option => option.value)
-// console.log(chosenMusic);
-
-
-
 let contactsForm = document.forms[0]
-
 contactsForm.addEventListener("submit", onSubmit);
 
 let emailInput = contactsForm.elements.email
-
 emailInput.addEventListener("input", onEmailInput);
 function onEmailInput(event) {
     emailInput.value = event.target.value
 }
 
-function onSubmit(event) {
-    event.preventDefault()
-    alert(emailInput.value)
+let telInput = contactsForm.elements.tel
+telInput.addEventListener("input", onTelInput);
+function onTelInput(event) {
+    telInput.value = event.target.value
 }
 
-let telInput = contactsForm.elements.tel
+let messageInput = contactsForm.elements.message
+messageInput.addEventListener("input", onMessage);
+function onMessage(event) {
+    messageInput.value = event.target.value
+}
 
-
-let message = contactsForm.elements.message
-console.log(emailInput.value);
-
-
-
-
+function onSubmit(event) {
+    event.preventDefault()
+    alert("Отправить сообщение пользователю: Email: " + emailInput.value + " " + "Phone: " + telInput.value + " " + "Text: " + messageInput.value)
+}
